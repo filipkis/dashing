@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html>
 <script
-        src="https://code.jquery.com/jquery-3.1.1.min.js"
-        integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
-        crossorigin="anonymous"></script>
+  src="https://code.jquery.com/jquery-1.12.4.min.js"
+  integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ="
+  crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.17.1/moment.min.js"></script>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.3.2/css/bulma.min.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 <script>
   $(document).ready(function () {
     
@@ -77,17 +77,18 @@
   });
 </script>
 <body>
-  <div class="tile is-parent">
-    <div class="tile notification is-child">
-      <p class="title" id='time'></p>
+  <div class="row text-center">
+    <div class="col-md-4">
+      <p class="h2" id='time'></p>
     </div>
-    <div class="tile notification is-child">
-      Next bus is <span class="title" id='time-in'></span> <span id='time-at'></span>
-      <br>
+    <div class="col-md-4">
+      <div class="h2">
+      <small>Next bus is</small> <span id='time-in'></span> <span class="small" id='time-at'></span>
+      </div>
       <span id="time-future"></span>
     </div>
-    <div class="tile notification is-child">
-      BTC price: <span class="title"> €<span id="btc"></span> </span>
+    <div class="col-md-4 h2">
+      <small>BTC price:</small> <span> &euro;<span id="btc"></span> </span>
     </div>
   </div>
 </body>
