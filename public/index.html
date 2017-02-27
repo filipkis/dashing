@@ -41,7 +41,7 @@
               {
                 url:"timetable.json",
                 success: function(data){
-                  var latest = result[0];
+                  var latest = data[0];
                   var time = moment().add(parseInt(latest.in),'m');
                   latest.at = moment(latest.at);
                   document.getElementById('bus').innerHTML = latest.at.fromNow()
