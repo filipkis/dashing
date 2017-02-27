@@ -4,7 +4,9 @@ var SL = require('sl-api');
 var moment = require('moment-timezone');
 var fs = require('fs');
  
-var sl = null; 
+var sl = null;
+
+var TIMEZONE = 'Europe/Stockholm'; 
 
 var realtimeInformationKeys = require('./keys')
 
@@ -18,11 +20,11 @@ function getTime(siteId, type, line, direction, callback){
           try{
             var date = null;
             if(result.ExpectedDateTime === undefined){
-                date = moment(data.LatestUpdate).add(parseInt(result.DisplayTime),'m')
+                date = moment.tz(data.LatestUpdate,TIMEZONE).add(parseInt(result.DisplayTime),'m')
             } else {
-                date = moment(result.ExpectedDateTime)
+                date = moment.tz(result.ExpectedDateTime,TIMEZONE)
             }
-            return {in: result.DisplayTime, at: date.format(), from: data.LatestUpdate };
+            return {in: result.DisplayTime, at: date.format(), from: moment.tz(data.LatestUpdate,TIMEZONE).format() };
           }catch(e) {
             console.error(e.stack);
           }
@@ -36,7 +38,7 @@ function getTime(siteId, type, line, direction, callback){
 }
 
 var main = function() {
-  var time = moment();
+  var time = moment().tz(TIMEZONE);
   var interval = 3;
   if(time.hour() >= 1 && time.hour() <= 4){
     interval = 5;
