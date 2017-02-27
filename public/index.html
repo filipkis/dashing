@@ -39,7 +39,7 @@
     var sl = function() {
       $.ajax(
               {
-                url:"/timetable.json",
+                url:"timetable.json",
                 success: function(data){
                   var latest = result[0];
                   var time = moment().add(parseInt(latest.in),'m');
