@@ -38,7 +38,7 @@ function getTime(siteId, type, line, direction, callback){
               results = results.concat(data.Departure.filter((d)=>{
                 return d.direction.indexOf('Stockholm') !== -1;
               }).map((result)=>{
-                var date = moment(result.date + ' ' + result.time).tz(TIMEZONE);
+                var date = moment(result.date + ' ' + result.time + '+01:00').tz(TIMEZONE);
                 return {at: date.format()}
               }));
               callback(results)
