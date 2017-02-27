@@ -1,0 +1,21 @@
+{
+  "name": "mirror-pi-backend",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "moment": "^2.17.1",
+    "moment-timezone": "^0.5.11",
+    "npm-git-install": "^0.3.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "install": "npm-git install"
+  },
+  "gitDependencies": {
+    "sl-api": "git+ssh://git@github.com/filipkis/SL-api.git"
+  },
+  "author": "",
+  "license": "ISC"
+}
