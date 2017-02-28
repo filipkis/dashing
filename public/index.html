@@ -53,6 +53,9 @@
                 success: function(data){
                   var latest = data[0];
                   latest.at = moment(latest.at);
+                  if(latest.at.diff(moment(),'seconds') < 30) {
+                    latest.at = moment(data[1].at);
+                  }
                   document.getElementById('time-in').innerHTML = timeFromNow(latest.at)
                   document.getElementById('time-at').innerHTML = '(at ' + latest.at.format('HH:mm') + ')';
                   // Add other departures
